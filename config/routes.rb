@@ -349,6 +349,7 @@ Discourse::Application.routes.draw do
     get "review/count" => "reviewables#count"
     get "review/topics" => "reviewables#topics"
     get "review/settings" => "reviewables#settings"
+    get "awaiting_moderations" => "reviewables#own_posts"
     put "review/settings" => "reviewables#settings"
     put "review/:reviewable_id/perform/:action_id" => "reviewables#perform", constraints: {
       reviewable_id: /\d+/,

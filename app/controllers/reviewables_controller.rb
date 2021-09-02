@@ -6,7 +6,7 @@ class ReviewablesController < ApplicationController
   PER_PAGE = 10
 
   before_action :version_required, only: [:update, :perform]
-  before_action :ensure_can_see, except: [:destroy]
+  before_action :ensure_can_see, except: [:destroy, :own_posts]
 
   def index
     offset = params[:offset].to_i
@@ -236,6 +236,11 @@ class ReviewablesController < ApplicationController
 
     data = { reviewable_score_types: post_action_types }
     render_serialized(data, ReviewableSettingsSerializer, rest_serializer: true)
+  end
+
+  def own_posts
+    posts = ReviewableQueuedPost.where(created_by: current_user).pending
+    render_serialized(posts, ReviewableQueuedPostSerializer, root: :awaiting_moderations)
   end
 
 protected
