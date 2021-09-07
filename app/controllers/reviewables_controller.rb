@@ -240,7 +240,8 @@ class ReviewablesController < ApplicationController
 
   def own_posts
     posts = ReviewableQueuedPost.where(created_by: current_user).pending
-    render_serialized(posts, ReviewableQueuedPostSerializer, root: :awaiting_moderations)
+    json = serialize_data(posts, ReviewableQueuedPostSerializer, root: :awaiting_moderations)
+    render_json_dump(json.merge(meta: { types: meta_types }), rest_serializer: true)
   end
 
 protected
