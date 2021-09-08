@@ -119,7 +119,6 @@ export default function () {
           this.route("pending");
           this.route("drafts");
           this.route("read");
-          this.route("awaitingModeration", { path: "awaiting-moderation" });
         }
       );
 

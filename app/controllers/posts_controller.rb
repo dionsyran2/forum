@@ -588,6 +588,12 @@ class PostsController < ApplicationController
     render_serialized(posts, AdminUserActionSerializer)
   end
 
+  def pending
+    posts = ReviewableQueuedPost.where(created_by: current_user).pending
+    json = serialize_data(posts, PendingPostSerializer, root: :pending_posts)
+    render_json_dump(json, rest_serializer: true)
+  end
+
   protected
 
   # We can't break the API for making posts. The new, queue supporting API

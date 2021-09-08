@@ -349,7 +349,6 @@ Discourse::Application.routes.draw do
     get "review/count" => "reviewables#count"
     get "review/topics" => "reviewables#topics"
     get "review/settings" => "reviewables#settings"
-    get "awaiting_moderations" => "reviewables#own_posts"
     put "review/settings" => "reviewables#settings"
     put "review/:reviewable_id/perform/:action_id" => "reviewables#perform", constraints: {
       reviewable_id: /\d+/,
@@ -574,6 +573,7 @@ Discourse::Application.routes.draw do
     get "posts/:id/reply-ids/all" => "posts#all_reply_ids"
     get "posts/:username/deleted" => "posts#deleted_posts", constraints: { username: RouteFormat.username }
     get "posts/:username/flagged" => "posts#flagged_posts", constraints: { username: RouteFormat.username }
+    get "posts/pending" => "posts#pending"
 
     %w{groups g}.each do |root_path|
       resources :groups, id: RouteFormat.username, path: root_path do

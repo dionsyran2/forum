@@ -4,7 +4,7 @@
       {{#d-navigation-item route="userActivity.index"}}{{i18n "user.filters.all"}}{{/d-navigation-item}}
       {{#d-navigation-item route="userActivity.topics"}}{{i18n "user_action_groups.4"}}{{/d-navigation-item}}
       {{#d-navigation-item route="userActivity.replies"}}{{i18n "user_action_groups.5"}}{{/d-navigation-item}}
-      {{#d-navigation-item route="userActivity.awaitingModeration"}}Awaiting moderation{{/d-navigation-item}}
+      {{#d-navigation-item route="userActivity.pending"}}Pending{{/d-navigation-item}}
 
       {{#if user.showRead}}
         {{#d-navigation-item route="userActivity.read" title=(i18n "user.read_help")}}
