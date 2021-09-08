@@ -1,4 +1,9 @@
 {{#if model.noContent}}
-  <div class="alert alert-info">{{html-safe model.noContentHelp}}</div>
+  <div class="empty-state">
+    <span class="empty-state-title">{{model.emptyStateTitle}}</span>
+    <div class="empty-state-body">
+      <p>{{model.emptyStateBody}}</p>
+    </div>
+  </div>
 {{/if}}
 {{user-stream stream=model}}

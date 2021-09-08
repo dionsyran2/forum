@@ -7,9 +7,13 @@ import { ajax } from "discourse/lib/ajax";
 import { emojiUnescape } from "discourse/lib/text";
 import { escapeExpression } from "discourse/lib/utilities";
 import { url } from "discourse/lib/computed";
+import { iconHTML } from "discourse-common/lib/icon-library";
+import getURL from "discourse-common/lib/get-url";
+import I18n from "I18n";
 
 export default RestModel.extend({
   loaded: false,
+  emptyStateTitle: I18n.t("no_activity_title"),
 
   @on("init")
   _initialize() {
@@ -53,6 +57,16 @@ export default RestModel.extend({
   @discourseComputed("loaded", "content.[]")
   noContent(loaded, content) {
     return loaded && content.length === 0;
+  },
+
+  @discourseComputed()
+  emptyStateBody() {
+    return I18n.t("no_activity_body", {
+      topUrl: getURL("/top"),
+      categoriesUrl: getURL("/categories"),
+      preferencesUrl: getURL("/my/preferences"),
+      heartIcon: iconHTML("heart"),
+    }).htmlSafe();
   },
 
   remove(userAction) {
