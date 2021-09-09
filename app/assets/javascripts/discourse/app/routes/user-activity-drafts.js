@@ -1,8 +1,14 @@
 import DiscourseRoute from "discourse/routes/discourse";
+import I18n from "I18n";
 
 export default DiscourseRoute.extend({
+  emptyStateTitle: I18n.t("user_activity.no_drafts_title"),
+  emptyStateBody: I18n.t("user_activity.no_drafts_body"),
+
   model() {
-    let userDraftsStream = this.modelFor("user").get("userDraftsStream");
+    const userDraftsStream = this.modelFor("user").get("userDraftsStream");
+    userDraftsStream.set("emptyStateBody", this.emptyStateBody);
+    userDraftsStream.set("emptyStateTitle", this.emptyStateTitle);
     return userDraftsStream.load(this.site).then(() => userDraftsStream);
   },
 

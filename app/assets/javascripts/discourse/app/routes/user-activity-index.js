@@ -5,9 +5,9 @@ import I18n from "I18n";
 
 export default UserActivityStreamRoute.extend({
   userActionType: null,
-  emptyStateTitle: I18n.t("no_activity_title"),
+  emptyStateTitle: I18n.t("user_activity.no_activity_title"),
 
-  emptyStateBody: I18n.t("no_activity_body", {
+  emptyStateBody: I18n.t("user_activity.no_activity_body", {
     topUrl: getURL("/top"),
     categoriesUrl: getURL("/categories"),
     preferencesUrl: getURL("/my/preferences"),
