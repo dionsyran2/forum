@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class PendingPostSerializer < ApplicationSerializer
-
   attributes :id,
              :avatar_template,
              :category_id,
@@ -17,13 +16,6 @@ class PendingPostSerializer < ApplicationSerializer
   delegate :created_by, :payload, :topic, to: :object, private: true
   delegate :url, to: :topic, prefix: true, allow_nil: true
   delegate :avatar_template, :name, :username, to: :created_by, allow_nil: true
-
-  # payload_attributes :raw,
-  #                    :title,
-  #                    :category,
-  #                    :tags,
-  #                    :via_email,
-  #                    :raw_email
 
   def raw_text
     payload["raw"]
