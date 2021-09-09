@@ -8,7 +8,10 @@ export default DiscourseRoute.extend(ViewingActionType, {
   },
 
   model() {
-    return this.modelFor("user").get("stream");
+    const streamModel = this.modelFor("user").get("stream");
+    streamModel.set("emptyStateBody", this.emptyStateBody);
+    streamModel.set("emptyStateTitle", this.emptyStateTitle);
+    return streamModel;
   },
 
   afterModel(model, transition) {
