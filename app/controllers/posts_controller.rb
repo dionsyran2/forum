@@ -589,9 +589,7 @@ class PostsController < ApplicationController
   end
 
   def pending
-    posts = ReviewableQueuedPost.where(created_by: current_user).pending
-    json = serialize_data(posts, PendingPostSerializer, root: :pending_posts)
-    render_json_dump(json, rest_serializer: true)
+    render_serialized(current_user.pending_posts.order(created_at: :desc), PendingPostSerializer, root: :pending_posts)
   end
 
   protected
