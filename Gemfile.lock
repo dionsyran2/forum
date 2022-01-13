@@ -171,7 +171,7 @@ GEM
     hkdf (0.3.0)
     htmlentities (4.3.4)
     http_accept_language (2.1.1)
-    i18n (1.8.10)
+    i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     image_optim (0.30.0)
       exifr (~> 1.2, >= 1.2.2)
@@ -306,7 +306,7 @@ GEM
     puma (5.4.0)
       nio4r (~> 2.0)
     r2 (0.2.7)
-    racc (1.5.2)
+    racc (1.6.0)
     rack (2.2.3)
     rack-mini-profiler (2.3.3)
       rack (>= 1.2.0)
@@ -323,9 +323,9 @@ GEM
       activerecord (~> 6.0)
       concurrent-ruby
       railties (~> 6.0)
-    rails_multisite (3.0.0)
-      activerecord (> 5.0, < 7)
-      railties (> 5.0, < 7)
+    rails_multisite (4.0.1)
+      activerecord (> 5.0, < 7.1)
+      railties (> 5.0, < 7.1)
     railties (6.1.4.1)
       actionpack (= 6.1.4.1)
       activesupport (= 6.1.4.1)
@@ -470,7 +470,7 @@ GEM
       jwt (~> 2.0)
     xorcist (1.1.2)
     yaml-lint (0.0.10)
-    zeitwerk (2.4.2)
+    zeitwerk (2.5.3)
 
 PLATFORMS
   arm64-darwin-20
